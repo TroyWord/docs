@@ -1,2 +1,1 @@
-# docs
-demo2023
+# Hello VuePress!
