@@ -6,7 +6,7 @@ module.exports = {
     head: [
         ['link', {rel:'icon',href:'/favicon.ico'}],
         ['meta', { name: 'keywords', content: 'vuepress:介绍 说明,1111111111' }],
-        ['meta', { name: 'auther', content: '1111111' }],
+        ['meta', { name: 'auther', content: '祖国的花朵' }],
         ['link', { rel: 'manifest', href: '/manifest.json' }],
         ['meta', { name: 'theme-color', content: '#3eaf7c' }],
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
@@ -16,25 +16,31 @@ module.exports = {
         ['meta', { name: 'msapplication-TileImage', content: '/icons/msapplication-icon-144x144.png' }],
         ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
     ],
-    plugins: [
-        [
-            '@vuepress/last-updated',
-            {
-                Transformer:(timestamp) => {
-                    return moment(timestamp).format("LLLL")
-                }
+    plugins: {
+        '@vuepress/last-updated':{
+            Transformer:(timestamp) => moment(timestamp).format("LLLL")
+        },
+        '@vuepress/pwa': {
+            serviceWorker: true,
+            updatePopup: {
+              message: "发现新内容可用",
+              buttonText: "刷新~"
             }
-        ],
-        [
-            '@vuepress/pwa', {
-                      serviceWorker: true,
-                      updatePopup: {
-                        message: "New content is available.",
-                        buttonText: "Refresh"
-                      }
-                    }
-        ]
-    ],
+        },
+        '@vssue/vuepress-plugin-vssue': {
+            // 设置 `platform` 而不是 `api`
+            // platform: 'github-v4',
+            platform: 'github',
+            
+            // 其他的 Vssue 配置
+            owner: 'TroyWord',
+            repo: 'docs',
+            clientId: '4b0a23114cecd5d852c6',
+            clientSecret: '2cbcbc11c13da2be8751063047c38c3112b9852e',
+            locale: 'zh', //语言
+            autoCreateIssue :true, //自动创建评论
+          }
+    },      
     themeConfig: {
     //navbar: false,  //禁用导航栏
     
