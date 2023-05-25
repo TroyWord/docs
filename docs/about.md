@@ -14,5 +14,5 @@ title: 关于我
 
 # Vssue Demo  v3可以不登录评论
 
-  
+追加 Travis CI自动化部署
 
