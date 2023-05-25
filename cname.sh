@@ -3,4 +3,4 @@
 #!/usr/bin/env sh
 
 set -e
-echo 'troyword.github.io/docs/' > docs/.vuepress/dist/CNAME
+echo 'troyword.github.io' > docs/.vuepress/dist/CNAME
